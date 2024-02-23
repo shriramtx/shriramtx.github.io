@@ -1,11 +1,11 @@
 # Site
-name: 'Shriram's Curiosity Chronicles'
+name: 'Shriramtx'
 description: 'A chronicle of experiences, insights, and discoveries.'
 logo: 'assets/images/logo.png'
 favicon: 'assets/images/favicon.ico'
 baseurl: ''
 disqus: 'demowebsite'
-email: 'shriramtx@gmail.com'
+email: ''
 mailchimp-list: ''
 
 include: ["_pages"]
@@ -19,13 +19,13 @@ plugins:
   - jekyll-seo-tag
   
 authors:
-    sal:
+    Shriram:
       name:           Shriram
-      site:           https://shriramtx.github.io
+      site:           https://www.wowthemes.net
       avatar:         /assets/images/avatar1.jpg
-      bio:            "Hi, I am Shriram"
-      email:          shriramtx@gmail.com
-      twitter:        https://twitter.com/ishrirams
+      bio:            "Hi, I am Shriram, the author of Mundana, the theme you're currently previewing. I hope you like it!"
+      email:          wowthemesnet@gmail.com
+      twitter:        https://twitter.com/wowthemesnet
 
  
 # Defaults
