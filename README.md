@@ -1,4 +1,4 @@
-# ShriramTX
+# Shriram's Curiosity Chronicles
 
 ### Documentation
 
