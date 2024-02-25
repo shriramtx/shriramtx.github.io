@@ -1,77 +1,95 @@
-import { defineConfig } from "astro/config";
-import { astroImageTools } from "astro-imagetools";
-import icon from "astro-icon";
-import mdx from "@astrojs/mdx";
-import m2dx from "astro-m2dx";
-import sitemap from "@astrojs/sitemap";
-import tailwind from "@astrojs/tailwind";
-import rehypeExternalLinks from "rehype-external-links";
-import fauxRemarkEmbedder from "@remark-embedder/core";
-import fauxOembedTransformer from "@remark-embedder/transformer-oembed";
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-const remarkEmbedder = fauxRemarkEmbedder.default;
-const oembedTransformer = fauxOembedTransformer.default;
+import { defineConfig, squooshImageService } from 'astro/config';
 
-import vue from "@astrojs/vue";
-/** @type {import('astro-m2dx').Options} */
+import sitemap from '@astrojs/sitemap';
+import tailwind from '@astrojs/tailwind';
+import mdx from '@astrojs/mdx';
+import partytown from '@astrojs/partytown';
+import icon from 'astro-icon';
+import compress from 'astro-compress';
+import tasks from './src/utils/tasks';
 
-const m2dxOptions = {
-  exportComponents: true,
-  unwrapImages: true,
-  autoImports: true,
-};
+import { readingTimeRemarkPlugin, responsiveTablesRehypePlugin } from './src/utils/frontmatter.mjs';
 
-// https://astro.build/config
+import { ANALYTICS, SITE } from './src/utils/config.ts';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+const whenExternalScripts = (items = []) =>
+  ANALYTICS.vendors.googleAnalytics.id && ANALYTICS.vendors.googleAnalytics.partytown
+    ? Array.isArray(items)
+      ? items.map((item) => item())
+      : [items()]
+    : [];
+
 export default defineConfig({
-  site: "https://shriramtx.github.io",
+  site: SITE.site,
+  base: SITE.base,
+  trailingSlash: SITE.trailingSlash ? 'always' : 'never',
+
+  output: 'static',
+
   integrations: [
-    icon(),
-    mdx({}),
-    sitemap(),
-    tailwind(),
-    vue({
-      appEntrypoint: "/src/pages/_app",
+    tailwind({
+      applyBaseStyles: false,
     }),
-    astroImageTools,
-  ],
-  markdown: {
-    extendDefaultPlugins: true,
-    remarkPlugins: [
-      [
-        remarkEmbedder,
-        {
-          transformers: [oembedTransformer],
-        },
-      ],
-      [m2dx, m2dxOptions],
-    ],
-    rehypePlugins: [
-      [
-        rehypeExternalLinks,
-        {
-          rel: ["nofollow"],
-          target: ["_blank"],
-        },
-      ],
-    ],
-  },
-  vite: {
-    build: {
-      rollupOptions: {
-        external: [
-          "/_pagefind/pagefind.js",
-          "/_pagefind/pagefind-ui.js",
-          "/_pagefind/pagefind-ui.css",
+    sitemap(),
+    mdx(),
+    icon({
+      include: {
+        tabler: ['*'],
+        'flat-color-icons': [
+          'template',
+          'gallery',
+          'approval',
+          'document',
+          'advertising',
+          'currency-exchange',
+          'voice-presentation',
+          'business-contact',
+          'database',
         ],
       },
-      assetsInlineLimit: 10096,
+    }),
+
+    ...whenExternalScripts(() =>
+      partytown({
+        config: { forward: ['dataLayer.push'] },
+      })
+    ),
+
+    compress({
+      CSS: true,
+      HTML: {
+        'html-minifier-terser': {
+          removeAttributeQuotes: false,
+        },
+      },
+      Image: false,
+      JavaScript: true,
+      SVG: false,
+      Logger: 1,
+    }),
+
+    tasks(),
+  ],
+
+  image: {
+    service: squooshImageService(),
+  },
+
+  markdown: {
+    remarkPlugins: [readingTimeRemarkPlugin],
+    rehypePlugins: [responsiveTablesRehypePlugin],
+  },
+
+  vite: {
+    resolve: {
+      alias: {
+        '~': path.resolve(__dirname, './src'),
+      },
     },
-  },
-  build: {
-    inlineStylesheets: "always",
-  },
-  scopedStyleStrategy: "attribute",
-  prefetch: {
-    defaultStrategy: "viewport",
   },
 });

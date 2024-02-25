@@ -1,224 +1,277 @@
-# Nebulix | Astro + Static CMS
+# 🚀 AstroWind
 
-[![License: CC BY-ND 4.0](https://img.shields.io/badge/License-CC_BY--ND_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nd/4.0/)
+<img src="https://raw.githubusercontent.com/onwidget/.github/main/resources/astrowind/lighthouse-score.png" align="right"
+     alt="AstroWind Lighthouse Score" width="100" height="358">
 
+🌟 _Most *starred* & *forked* Astro theme in 2022 & 2023_. 🌟
 
+**AstroWind** is a free and open-source template to make your website using **[Astro 4.0](https://astro.build/) + [Tailwind CSS](https://tailwindcss.com/)**. Ready to start a new project and designed taking into account web best practices.
 
+- ✅ **Production-ready** scores in **PageSpeed Insights** reports.
+- ✅ Integration with **Tailwind CSS** supporting **Dark mode** and **_RTL_**.
+- ✅ **Fast and SEO friendly blog** with automatic **RSS feed**, **MDX** support, **Categories & Tags**, **Social Share**, ...
+- ✅ **Image Optimization** (using new **Astro Assets** and **Unpic** for Universal image CDN).
+- ✅ Generation of **project sitemap** based on your routes.
+- ✅ **Open Graph tags** for social media sharing.
+- ✅ **Analytics** built-in Google Analytics, and Splitbee integration.
 
-A Universe of Possibilities: Blogs, Portfolios, Webshop, Restaurant Menus, and Beyond.
+<br>
 
+<img src="https://raw.githubusercontent.com/onwidget/.github/main/resources/astrowind/screenshot-astro4.png" alt="AstroWind Theme Screenshot">
 
+[![onWidget](https://custom-icon-badges.demolab.com/badge/made%20by%20-onWidget-556bf2?style=flat-square&logo=onwidget&logoColor=white&labelColor=101827)](https://onwidget.com)
+[![License](https://img.shields.io/github/license/onwidget/astrowind?style=flat-square&color=dddddd&labelColor=000000)](https://github.com/onwidget/astrowind/blob/main/LICENSE.md)
+[![Maintained](https://img.shields.io/badge/maintained%3F-yes-brightgreen.svg?style=flat-square)](https://github.com/onwidget)
+[![Contributions Welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat-square)](https://github.com/onwidget/astrowind#contributing)
+[![Known Vulnerabilities](https://snyk.io/test/github/onwidget/astrowind/badge.svg?style=flat-square)](https://snyk.io/test/github/onwidget/astrowind)
+[![Stars](https://img.shields.io/github/stars/onwidget/astrowind.svg?style=social&label=stars&maxAge=86400&color=ff69b4)](https://github.com/onwidget/astrowind)
+[![Forks](https://img.shields.io/github/forks/onwidget/astrowind.svg?style=social&label=forks&maxAge=86400&color=ff69b4)](https://github.com/onwidget/astrowind)
 
-![Nebulix](https://nebulix.unfolding.io/screenshots/nebulix-00-start.jpg)
+<br>
 
-## Notice
+<details open>
+<summary>Table of Contents</summary>
 
-__This theme is currently under development, and until we reach version 1.0.0, there is a possibility that upgrading could lead to errors.__
+- [Demo](#demo)
+- [Getting started](#getting-started)
+  - [Project structure](#project-structure)
+  - [Commands](#commands)
+  - [Configuration](#configuration)
+  - [Deploy](#deploy)
+- [Frequently Asked Questions](#frequently-asked-questions)
+- [Related Projects](#related-projects)
+- [Contributing](#contributing)
+- [Acknowledgements](#acknowledgements)
+- [License](#license)
 
-## 🛠️Deploy
-Easily deploy this theme to Netlify with a single click, and conveniently update environment variables afterward on Netlify.
+</details>
 
+<br>
 
+## Demo
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/unfolding-io/nebulix#BLOG_SLUG=blog&PORTFOLIO_SLUG=work&SHOP_SLUG=shop&MENU_SLUG=menu&WEBSITE_LANGUAGE=en&CURRENCY=USD&UNITS=metric&NODE_VERSION=18)
+📌 [https://astrowind.vercel.app/](https://astrowind.vercel.app/)
 
+<br>
 
-## Constellations of Features:
+## Getting started
 
--   📰 Chart Your Path with a Blog
--   🖼 Showcase Your Stellar Portfolio
--   🍝 Illuminate Culinary Voyages with a Restaurant Menu
--   🛒 Launch Your Webshop Powered by Snipcart
--   🔍 SEO Constellations: Canonical URLs and OpenGraph radiance
--   🧭 Navigational Maps: Sitemap Support
--   📑Language of the Stars: Markdown & MDX Support
--   📝 Static CMS Ready for Galactic Exploration
-- 	🐵 Mailchimp newsletter form
--   🕵 Unveil Hidden Constellations with Full Text Search using Pagefind
+**AstroWind** tries to give you quick access to creating a website using [Astro 4.0](https://astro.build/) + [Tailwind CSS](https://tailwindcss.com/). It's a free theme which focuses on simplicity, good practices and high performance.
 
-## ♻️ Page Speed and Emissions
-Experience the green and swift capabilities of Nebulix. With an impressively low emission of 0.05g - 0.07g CO2 per page visit and consistently achieving a lighthouse score between 98 and 100, Nebulix ensures both speed and environmental consciousness for your website.
+Very little vanilla javascript is used only to provide basic functionality so that each developer decides which framework (React, Vue, Svelte, Solid JS...) to use and how to approach their goals..
 
-## 🚀 Getting Started
+### Project structure
 
-### 1. Setting up the .env file
-
-rename the `env.txt` to `.env` and fill in your details
-
-```ENV
-BLOG_SLUG=blog
-PORTFOLIO_SLUG=work
-SHOP_SLUG=shop
-MENU_SLUG=menu
-WEBSITE_LANGUAGE=en
-CURRENCY=USD
-UNITS=metric
-SNIPCART_KEY=<your-snipcart-public-key>
-NODE_VERSION=18
-NEWSLETTER_PROVIDER=mailchimp
-MAILCHIMP_API_KEY=XXXXXXXXXXXXXXXX-us21
-MAILCHIMP_SERVER_PREFIX=us21	
-MAILCHIMP_LIST_ID=XXXXXXXXX
-
-FROM_EMAIL_ADDRESS=[test@email.com](mailto:test@email.com)
-TO_EMAIL_ADDRESS=[test@email.com](mailto:test@email.com)
-
-MAILGUN_API_KEY=XXXXXXXXX
-MAILGUN_DOMAIN=XXXXXXXXX
-MAILGUN_API_URL=<https://api.eu.mailgun.net>
-
-POSTMARK_SERVER_TOKEN=XXXXXXXXX
-
-SLACK_CHANNEL_ID=XXXXXXXXX
-SLACK_TOKEN=XXXXXXXXX
+Inside **AstroWind** template, you'll see the following folders and files:
 
 ```
-
-### 2. Configure your Static CMS Backend
-
-Navigate to `src/pages/admin.astro` and provide your Git repository details. You can find a list of all supported Git backends at:
-<https://www.staticcms.org/docs/backends-overview>
-
-
-**_Gitlab Example:_**
-
-```javascript
-
-const config = {
-	locale: lang,
-	site_url: url,
-	logo_url: 'https://nebulix.unfolding.io/nebulix-logo.svg',
-	local_backend: true,
-	backend: {
-		name: 'gitlab',
-		repo: '/<your-gitlab-repo>',
-		auth_type: 'pkce', // Required for pkce
-		app_id: 'xxxx', // Application ID from your GitLab settings
-		commit_messages: {
-			create: 'Create {{collection}} "{{slug}}"',
-			update: 'Update {{collection}} "{{slug}}"',
-			delete: 'Delete {{collection}} "{{slug}}"',
-			uploadMedia: 'Upload "{{path}}"',
-			deleteMedia: 'Delete "{{path}}"'
-		}
-	},
-	search: 'true',
-    ....
-}
-
+/
+├── public/
+│   ├── _headers
+│   └── robots.txt
+├── src/
+│   ├── assets/
+│   │   ├── favicons/
+│   │   ├── images/
+│   │   └── styles/
+│   │       └── tailwind.css
+│   ├── components/
+│   │   ├── blog/
+│   │   ├── common/
+│   │   ├── ui/
+│   │   ├── widgets/
+│   │   │   ├── Header.astro
+│   │   │   └── ...
+│   │   ├── CustomStyles.astro
+│   │   ├── Favicons.astro
+│   │   └── Logo.astro
+│   ├── content/
+│   │   ├── post/
+│   │   │   ├── post-slug-1.md
+│   │   │   ├── post-slug-2.mdx
+│   │   │   └── ...
+│   │   └-- config.ts
+│   ├── layouts/
+│   │   ├── Layout.astro
+│   │   ├── MarkdownLayout.astro
+│   │   └── PageLayout.astro
+│   ├── pages/
+│   │   ├── [...blog]/
+│   │   │   ├── [category]/
+│   │   │   ├── [tag]/
+│   │   │   ├── [...page].astro
+│   │   │   └── index.astro
+│   │   ├── index.astro
+│   │   ├── 404.astro
+│   │   ├-- rss.xml.ts
+│   │   └── ...
+│   ├── utils/
+│   ├── config.yaml
+│   └── navigation.js
+├── package.json
+├── astro.config.mjs
+└── ...
 ```
 
-### 3. Add your site to the astro config
+Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
 
-```javascript
+There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
 
-export default defineConfig({
-	site: 'https://your-website.com',
-    ....
+Any static assets, like images, can be placed in the `public/` directory if they do not require any transformation or in the `assets/` directory if they are imported directly.
 
-```
+[![Edit AstroWind on CodeSandbox](https://codesandbox.io/static/img/play-codesandbox.svg)](https://githubbox.com/onwidget/astrowind/tree/main) [![Open in Gitpod](https://svgshare.com/i/xdi.svg)](https://gitpod.io/?on=gitpod#https://github.com/onwidget/astrowind) [![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/onwidget/astrowind)
 
-### 4. Install dependencies
+> 🧑‍🚀 **Seasoned astronaut?** Delete this file `README.md`. Update `src/config.yaml` and contents. Have fun!
 
-```bash
-$ npm install
-```
+<br>
 
-### 🛠️ 5. Start Development server
-
-```bash
-$ npm run dev
-```
-
-If you wish to engage the local backend:
-
-```bash
-$ npm run cms-proxy-server
-```
-
-Now you can open Static CMS on http://localhost:4321/admin/
-
-
-## ❌ Removing Collections
-If your cosmic journey excludes a blog, portfolio, shop, or restaurant menu, simply remove the corresponding documents from the `src/content`. Additionally, erase the page templates from `src/pages` .
-
-
-## 🛸 Commands
+### Commands
 
 All commands are run from the root of the project, from a terminal:
 
-| Command                    | Action                                           |
-| :------------------------- | :----------------------------------------------- |
-| `npm install`              | Installs dependencies                            |
-| `npm run dev`              | Starts local dev server at `localhost:4321`      |
-| `npm run cms-proxy-server` | Starts Static CMS proxy server for local-backend |
-| `npm run build`            | Build your production site to `./dist/`          |
-| `npm run preview`          | Preview your build locally, before deploying     |
-| `npm run astro ...`        | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help`  | Get help using the Astro CLI                     |
+| Command               | Action                                             |
+| :-------------------- | :------------------------------------------------- |
+| `npm install`         | Installs dependencies                              |
+| `npm run dev`         | Starts local dev server at `localhost:3000`        |
+| `npm run build`       | Build your production site to `./dist/`            |
+| `npm run preview`     | Preview your build locally, before deploying       |
+| `npm run format`      | Format codes with Prettier                         |
+| `npm run lint:eslint` | Run Eslint                                         |
+| `npm run astro ...`   | Run CLI commands like `astro add`, `astro preview` |
 
-## 📁 Documentation
-Learn how to harness the power of Static CMS and craft a distinctive website that stands out from the crowd.
+<br>
 
-[Documentation](https://nebulix.unfolding.io/blog/tag/docs)
+### Configuration
 
-## 🌐 Demo
+Basic configuration file: `./src/config.yaml`
 
-Witness the extraordinary speed of Nebulix in action.
+```yaml
+site:
+  name: 'Example'
+  site: 'https://example.com'
+  base: '/' # Change this if you need to deploy to Github Pages, for example
+  trailingSlash: false # Generate permalinks with or without "/" at the end
 
-[Demo](https://nebulix.unfolding.io)
+  googleSiteVerificationId: false # Or some value,
 
-## 👀 Want to learn more about Astro?
+# Default SEO metadata
+metadata:
+  title:
+    default: 'Example'
+    template: '%s — Example'
+  description: 'This is the default meta description of Example website'
+  robots:
+    index: true
+    follow: true
+  openGraph:
+    site_name: 'Example'
+    images:
+      - url: '~/assets/images/default.jpg'
+        width: 1200
+        height: 628
+    type: website
+  twitter:
+    handle: '@twitter_user'
+    site: '@twitter_user'
+    cardType: summary_large_image
 
-Check out [Astro documentation](https://docs.astro.build) or jump into Astro's [Discord server](https://astro.build/chat).
+i18n:
+  language: en
+  textDirection: ltr
 
-## 📚 Tech Stack
+apps:
+  blog:
+    isEnabled: true # If the blog will be enabled
+    postsPerPage: 6 # Number of posts per page
 
-Astro, MDX, Vue, TailwindCSS, Pagefind, Snipcart
+    post:
+      isEnabled: true
+      permalink: '/blog/%slug%' # Variables: %slug%, %year%, %month%, %day%, %hour%, %minute%, %second%, %category%
+      robots:
+        index: true
 
-## 🛟 Support
+    list:
+      isEnabled: true
+      pathname: 'blog' # Blog main path, you can change this to "articles" (/articles)
+      robots:
+        index: true
 
-If you encounter any issues or bugs, we encourage you to open an issue in the repository. To help us quickly address the problem, please provide detailed information about the bug and steps to reproduce it.
+    category:
+      isEnabled: true
+      pathname: 'category' # Category main path /category/some-category, you can change this to "group" (/group/some-category)
+      robots:
+        index: true
 
-## 👑 Premium Support
+    tag:
+      isEnabled: true
+      pathname: 'tag' # Tag main path /tag/some-tag, you can change this to "topics" (/topics/some-category)
+      robots:
+        index: false
 
-For those seeking priority assistance, we offer premium support services. Do you need support, custom intergrations, design, or development? Feel free to reach out to me by email at [hello@unfolding.io.](mailto:hello@unfolding.io.) find me on [UpWork](https://www.upwork.com/freelancers/~01dcde6b3915c74c30) Im here to help!
+    isRelatedPostsEnabled: true # If a widget with related posts is to be displayed below each post
+    relatedPostsCount: 4 # Number of related posts to display
 
+analytics:
+  vendors:
+    googleAnalytics:
+      id: null # or "G-XXXXXXXXXX"
 
-## 📝 License
+ui:
+  theme: 'system' # Values: "system" | "light" | "dark" | "light:only" | "dark:only"
+```
 
-Want to get rid of the attribution? Simply [purchase a license](https://nebulix.unfolding.io/shop/nebulix-license/) and you're good to go.
+<br>
 
-## 🚕 Roadmap
+### Deploy
 
-As we journey towards v1.0, our path includes enriching the page builder with a diverse array of new blocks, upgrading dependencies to ensure optimal performance, and introducing exciting features. We're eager to hear from you! If you have any feature requests, please feel free to reach out and let us know.
+#### Deploy to production (manual)
 
-## ☕️ Want to Caffeinate your Developer?
+You can create an optimized production build with:
 
-By [caffeinating](https://www.buymeacoffee.com/unfolding.io) your developer, you're not just getting the best out of them; you're also ensuring a cheerful and energetic work environment.😊
+```shell
+npm run build
+```
 
-[![buymeacoffee](https://starfunnel.unfolding.io/screenshots/bymeacoffee.webp)](https://www.buymeacoffee.com/unfolding.io)
+Now, your website is ready to be deployed. All generated files are located at
+`dist` folder, which you can deploy the folder to any hosting service you
+prefer.
 
+#### Deploy to Netlify
 
+Clone this repository on own GitHub account and deploy to Netlify:
 
-## 📸 Screenshots
+[![Netlify Deploy button](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/onwidget/astrowind)
 
-![Nebulix](https://nebulix.unfolding.io/screenshots/nebulix-01-shop.jpg)
+#### Deploy to Vercel
 
-![Nebulix](https://nebulix.unfolding.io/screenshots/nebulix-02-shop-category.jpg)
+Clone this repository on own GitHub account and deploy to Vercel:
 
-![Nebulix](https://nebulix.unfolding.io/screenshots/nebulix-03-shop-product.jpg)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fonwidget%2Fastrowind)
 
-![Nebulix](https://nebulix.unfolding.io/screenshots/nebulix-04-shop-product.jpg)
+<br>
 
-![Nebulix](https://nebulix.unfolding.io/screenshots/nebulix-05-shop-product-dark.jpg)
+## Frequently Asked Questions
 
-![Nebulix](https://nebulix.unfolding.io/screenshots/nebulix-06-blogpost.jpg)
+- Why?
+-
+-
 
-![Nebulix](https://nebulix.unfolding.io/screenshots/nebulix-07-portfolio.jpg)
+<br>
 
-![Nebulix](https://nebulix.unfolding.io/screenshots/nebulix-08-footer.jpg)
+## Related projects
 
+- [TailNext](https://tailnext.vercel.app/) - Free template using Next.js 14 and Tailwind CSS with the new App Router.
+- [Qwind](https://qwind.pages.dev/) - Free template to make your website using Qwik + Tailwind CSS.
 
+## Contributing
 
+If you have any idea, suggestions or find any bugs, feel free to open a discussion, an issue or create a pull request.
+That would be very useful for all of us and we would be happy to listen and take action.
 
+## Acknowledgements
+
+Initially created by [onWidget](https://onwidget.com) and maintained by a community of [contributors](https://github.com/onwidget/astrowind/graphs/contributors).
+
+## License
+
+**AstroWind** is licensed under the MIT license — see the [LICENSE](./LICENSE.md) file for details.
