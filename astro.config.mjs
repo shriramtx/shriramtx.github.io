@@ -1,25 +1,15 @@
-// https://astro.build/config
-import { defineConfig } from "astro/config";
-import tailwind from "@astrojs/tailwind";
-import image from "@astrojs/image";
-import mdx from "@astrojs/mdx";
+import { defineConfig } from 'astro/config';
+import { settings } from './src/data/settings';
 import sitemap from "@astrojs/sitemap";
+import mdx from "@astrojs/mdx";
 
-import { remarkReadingTime } from "./src/utils/all";
-
+// https://astro.build/config
 export default defineConfig({
-  site: "https://shriramtx.github.io",
-  markdown: {
-    remarkPlugins: [remarkReadingTime],
-    rehypePlugins: ["rehype-plugin-image-native-lazy-loading"],
-    extendDefaultPlugins: true,
-  },
-  integrations: [
-    tailwind(),
-    image({
-      serviceEntryPoint: "@astrojs/image/sharp",
-    }),
-    mdx(),
-    sitemap(),
-  ],
+  site: settings.site,
+  integrations: [sitemap(), mdx()],
+  vite: {
+    ssr: {
+      external: ["svgo"]
+    }
+  }
 });

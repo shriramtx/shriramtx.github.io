@@ -1,36 +1,33 @@
 ---
-import Container from "@components/container.astro";
-import Postlist from "@components/postlist.astro";
-import Layout from "@layouts/Layout.astro";
-import { latestPosts } from "@utils/content";
-// Use Astro.glob() to fetch all posts, and then sort them by date.
-// const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
-//   (a, b) =>
-//     new Date(b.frontmatter.publishDate).valueOf() -
-//     new Date(a.frontmatter.publishDate).valueOf()
-// );
-// console.log(posts[0].frontmatter.image);
+import Layout from '../layouts/Page.astro'
+import Container from '../components/Container.astro';
+import BlogPostsList from '../components/BlogPostsList.astro';
+
+const posts = (await Astro.glob('./blog/*.{md,mdx}')).sort(
+	(a, b) => new Date(b.frontmatter.publishedAt).valueOf() - new Date(a.frontmatter.publishedAt).valueOf()
+);
+
+const seo = {
+  title: 'Simple Blog | A template by Little Sticks',
+  description: 'A simple blog template for Astro by Little Sticks',
+}
 ---
 
-<Layout title="">
+<style>
+  .home-hero-text__container {
+    padding: 5vh 0;
+  }
+  h1 {
+    text-align: center;
+  }
+</style>
+
+<Layout seo={seo}>
   <Container>
-    <main>
-      <div class="grid gap-10 lg:gap-10 md:grid-cols-2">
-        {
-          latestPosts
-            .slice(0, 2)
-            .map((post) => (
-              <Postlist post={post} aspect="landscape" preloadImage={true} />
-            ))
-        }
-      </div>
-      <div class="grid gap-10 mt-10 lg:gap-10 md:grid-cols-2 xl:grid-cols-3">
-        {
-          latestPosts
-            .slice(2)
-            .map((post) => <Postlist post={post} aspect="square" />)
-        }
-      </div>
-    </main>
+    <div class="home-hero-text__container">
+      <h1 class="fade-in">Blog</h1>
+    </div>
+    <BlogPostsList posts={posts}/>
   </Container>
 </Layout>
+
