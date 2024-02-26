@@ -9,7 +9,7 @@ import { sortPostsByDateDesc } from '@/utils/post-utils'
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   const posts = (await getCollection('posts')).sort(sortPostsByDateDesc)
 
-  return paginate(posts, { pageSize: 5 })
+  return paginate(posts, { pageSize: 5 }) /changes the number of posts per page
 }
 
 const { page } = Astro.props as { page: Page<CollectionEntry<'posts'>> }
