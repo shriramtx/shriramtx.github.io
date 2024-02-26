@@ -1,7 +1,7 @@
 {
-    "name": "ovidius-astro-theme",
+    "name": "dante-astro-theme",
     "type": "module",
-    "version": "0.0.2",
+    "version": "0.0.1",
     "scripts": {
         "dev": "astro dev",
         "start": "astro dev",
@@ -15,11 +15,12 @@
         "@astrojs/sitemap": "^3.0.5",
         "@astrojs/tailwind": "^5.1.0",
         "astro": "^4.3.5",
+        "marked": "^12.0.0",
         "tailwindcss": "^3.4.1"
     },
     "devDependencies": {
         "@tailwindcss/typography": "^0.5.10",
-        "prettier": "^3.2.4",
+        "prettier": "^3.2.5",
         "prettier-plugin-tailwindcss": "^0.5.11"
     }
 }

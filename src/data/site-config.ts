@@ -1,22 +1,19 @@
 export type Image = {
     src: string;
     alt?: string;
+    caption?: string;
 };
 
 export type Link = {
-    href: string;
     text: string;
-};
-
-export type SocialLink = Link & {
-    icon: 'codepen' | 'dev' | 'facebook' | 'github' | 'instagram' | 'linkedin' | 'medium' | 'x-twitter';
+    href: string;
 };
 
 export type Hero = {
     title?: string;
     text?: string;
-    avatar?: Image;
-    backgroundImage?: Image;
+    image?: Image;
+    actions?: Link[];
 };
 
 export type Subscribe = {
@@ -28,37 +25,46 @@ export type Subscribe = {
 export type SiteConfig = {
     logo?: Image;
     title: string;
+    subtitle?: string;
     description: string;
     image?: Image;
-    primaryNavLinks?: Link[];
-    secondaryNavLinks?: Link[];
-    socialLinks?: SocialLink[];
+    headerNavLinks?: Link[];
+    footerNavLinks?: Link[];
+    socialLinks?: Link[];
     hero?: Hero;
     subscribe?: Subscribe;
     postsPerPage?: number;
+    projectsPerPage?: number;
 };
 
 const siteConfig: SiteConfig = {
-    logo: {
-        src: '/logo.svg',
-        alt: 'Ovidius logo'
-    },
-    title: 'Ovidius',
-    description: 'Astro.js and Tailwind CSS theme for blogging by justgoodui.com',
+    title: 'Dante',
+    subtitle: 'Minimal Astro.js theme',
+    description: 'Astro.js and Tailwind CSS theme for blog and portfolio by justgoodui.com',
     image: {
-        src: '/ovidius-preview.jpg',
-        alt: 'Ovidius - Astro.js and Tailwind CSS theme'
+        src: '/dante-preview.jpg',
+        alt: 'Dante - Astro.js and Tailwind CSS theme'
     },
-    primaryNavLinks: [
+    headerNavLinks: [
         {
             text: 'Home',
             href: '/'
+        },
+        {
+            text: 'Projects',
+            href: '/projects'
         },
         {
             text: 'Blog',
             href: '/blog'
         },
         {
+            text: 'Tags',
+            href: '/tags'
+        }
+    ],
+    footerNavLinks: [
+        {
             text: 'About',
             href: '/about'
         },
@@ -67,62 +73,49 @@ const siteConfig: SiteConfig = {
             href: '/contact'
         },
         {
-            text: 'Download Theme',
-            href: 'https://github.com/JustGoodUI/ovidius-astro-theme'
-        }
-    ],
-    secondaryNavLinks: [
-        {
-            text: 'About',
-            href: '/about'
-        },
-        {
-            text: 'Terms of Service',
+            text: 'Terms',
             href: '/terms'
         },
         {
-            text: 'Contact',
-            href: '/contact'
-        },
-        {
-            text: 'Download Theme',
-            href: 'https://github.com/JustGoodUI/ovidius-astro-theme'
+            text: 'Download theme',
+            href: 'https://github.com/JustGoodUI/dante-astro-theme'
         }
     ],
     socialLinks: [
         {
-            text: 'Go to GitHub repo',
-            href: 'https://github.com/JustGoodUI/ovidius-astro-theme',
-            icon: 'github'
+            text: 'Dribbble',
+            href: 'https://dribbble.com/'
         },
         {
-            text: 'Follow on Instagram',
-            href: 'https://instagram.com/',
-            icon: 'instagram'
+            text: 'Instagram',
+            href: 'https://instagram.com/'
         },
         {
-            text: 'Follow on X',
-            href: 'https://twitter.com/justgoodui',
-            icon: 'x-twitter'
+            text: 'X/Twitter',
+            href: 'https://twitter.com/'
         }
     ],
     hero: {
-        title: 'Hi there!',
-        text: "My name is Justin Case. I'm a freelance front-end developer, author and speaker based in Austin, TX. It's nice to meet you.",
-        avatar: {
-            src: '/avatar.jpg',
-            alt: 'Justin Case'
+        title: 'Hi There & Welcome to My Corner of the Web!',
+        text: "I'm **Ethan Donovan**, a web developer at Amazing Studio, dedicated to the realms of collaboration and artificial intelligence. My approach involves embracing intuition, conducting just enough research, and leveraging aesthetics as a catalyst for exceptional products. I have a profound appreciation for top-notch software, visual design, and the principles of product-led growth. Feel free to explore some of my coding endeavors on <a href='https://github.com/JustGoodUI/dante-astro-theme'>GitHub</a> or follow me on <a href='https://twitter.com/justgoodui'>Twitter/X</a>.",
+        image: {
+            src: '/hero.jpeg',
+            alt: 'A person sitting at a desk in front of a computer'
         },
-        backgroundImage: {
-            src: '/hero.webp'
-        }
+        actions: [
+            {
+                text: 'Get in Touch',
+                href: '/contact'
+            }
+        ]
     },
     subscribe: {
-        title: 'Subscribe to Ovidius Newsletter',
-        text: 'One update per week. All the latest news directly in your inbox.',
-        formUrl: 'https://justgoodthemes.us3.list-manage.com/subscribe/post?u=78f1bab16028354caeb23aecd&amp;id=4a7330d117&amp;f_id=005c48e2f0'
+        title: 'Subscribe to Dante Newsletter',
+        text: 'One update per week. All the latest posts directly in your inbox.',
+        formUrl: '#'
     },
-    postsPerPage: 5
+    postsPerPage: 8,
+    projectsPerPage: 8
 };
 
 export default siteConfig;
