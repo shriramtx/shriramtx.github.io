@@ -1,28 +1,25 @@
-import mdx from "@astrojs/mdx";
-import react from "@astrojs/react";
-import sitemap from "@astrojs/sitemap";
-import tailwind from "@astrojs/tailwind";
-import vercel from "@astrojs/vercel/static";
-import icon from "astro-icon";
-import { defineConfig } from "astro/config";
-
 // https://astro.build/config
+import { defineConfig } from "astro/config";
+import tailwind from "@astrojs/tailwind";
+import image from "@astrojs/image";
+import mdx from "@astrojs/mdx";
+import sitemap from "@astrojs/sitemap";
+
+import { remarkReadingTime } from "./src/utils/all";
+
 export default defineConfig({
   site: "https://shriramtx.github.io",
+  markdown: {
+    remarkPlugins: [remarkReadingTime],
+    rehypePlugins: ["rehype-plugin-image-native-lazy-loading"],
+    extendDefaultPlugins: true,
+  },
   integrations: [
-    mdx({
-      syntaxHighlight: "shiki",
-      shikiConfig: { theme: "github-dark-dimmed" },
-      gfm: true,
+    tailwind(),
+    image({
+      serviceEntryPoint: "@astrojs/image/sharp",
     }),
-    icon(),
+    mdx(),
     sitemap(),
-    react(),
-    tailwind({
-      applyBaseStyles: false,
-    }),
   ],
-  adapter: vercel({
-    analytics: true,
-  }),
 });
