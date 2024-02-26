@@ -1,77 +1,83 @@
-const defaultTheme = require('tailwindcss/defaultTheme');
+const { fontFamily } = require("tailwindcss/defaultTheme");
 
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-    content: ['./src/**/*.{astro,html,js,jsx,md,mdx,ts,tsx}'],
-    theme: {
-        extend: {
-            boxShadow: {
-                button: '0 0 1px 6px rgb(var(--color-primary) / 0.175)',
-                avatar: '0 0 1px 11px rgb(var(--color-primary) / 0.15), 0 0 1px 22px rgb(var(--color-primary) / 0.10)'
-            },
-            colors: {
-                primary: 'rgb(var(--color-primary) / <alpha-value>)'
-            },
-            fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans]
-            },
-            typography: (theme) => ({
-                DEFAULT: {
-                    css: {
-                        a: {
-                            color: 'rgb(var(--color-primary))',
-                            '&:hover': {
-                                'text-decoration': 'none'
-                            }
-                        },
-                        blockquote: {
-                            border: 0,
-                            fontSize: '1.3125em',
-                            fontStyle: 'normal',
-                            fontWeight: 600,
-                            lineHeight: 1.4,
-                            paddingLeft: 0,
-                            position: 'relative',
-                            textAlign: 'center',
-                            '&:before': {
-                                backgroundColor: 'rgb(var(--color-primary))',
-                                content: '""',
-                                display: 'block',
-                                height: '3px',
-                                margin: '0 auto 30px',
-                                width: '3.75rem'
-                            },
-                            '&:after': {
-                                backgroundColor: 'rgb(var(--color-primary))',
-                                content: '""',
-                                display: 'block',
-                                height: '3px',
-                                margin: '30px auto 0',
-                                width: '1.875rem'
-                            },
-                            '@media (min-width: theme("screens.sm"))': {
-                                fontSize: '1.66667em',
-                                lineHeight: 1.3
-                            },
-                            '@media (min-width: theme("screens.lg"))': {
-                                marginLeft: '-6rem',
-                                marginRight: '-6rem'
-                            },
-                            '@media (min-width: theme("screens.xl"))': {
-                                marginLeft: '-10rem',
-                                marginRight: '-10rem'
-                            }
-                        }
-                    }
-                },
-                lg: {
-                    css: {
-                        blockquote: {
-                            paddingLeft: 0
-                        }
-                    }
-                }
-            })
-        }
+  darkMode: ["class"],
+  content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
+  theme: {
+    container: {
+      center: true,
+      padding: "1rem",
+      screens: {
+        "2xl": "1400px",
+      },
     },
-    plugins: [require('@tailwindcss/typography')]
+    extend: {
+      fontFamily: {
+        sans: ["Inter", ...fontFamily.sans],
+        heading: ["CalSans Semibold", ...fontFamily.sans],
+      },
+      height: {
+        "18": "4.5rem",
+      },
+      spacing: {
+        "18": "4.5rem",
+      },
+      colors: {
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        primary: {
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
+        },
+        secondary: {
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
+        },
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
+        },
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
+        },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
+        },
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
+        },
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
+        },
+      },
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
+      },
+      keyframes: {
+        "accordion-down": {
+          from: { height: 0 },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: 0 },
+        },
+      },
+      animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
+      },
+    },
+  },
+  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
 };

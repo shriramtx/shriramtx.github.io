@@ -1,17 +1,28 @@
-import { defineConfig } from 'astro/config';
-import mdx from '@astrojs/mdx';
-import sitemap from '@astrojs/sitemap';
-import tailwind from '@astrojs/tailwind';
+import mdx from "@astrojs/mdx";
+import react from "@astrojs/react";
+import sitemap from "@astrojs/sitemap";
+import tailwind from "@astrojs/tailwind";
+import vercel from "@astrojs/vercel/static";
+import icon from "astro-icon";
+import { defineConfig } from "astro/config";
 
 // https://astro.build/config
 export default defineConfig({
-    site: 'https://shriramtx.github.io',
-    integrations: [
-        mdx(),
-        sitemap(),
-        tailwind({
-            // Disable injecting a basic `base.css` import on every page.
-            applyBaseStyles: false
-        })
-    ]
+  site: "https://shriramtx.github.io",
+  integrations: [
+    mdx({
+      syntaxHighlight: "shiki",
+      shikiConfig: { theme: "github-dark-dimmed" },
+      gfm: true,
+    }),
+    icon(),
+    sitemap(),
+    react(),
+    tailwind({
+      applyBaseStyles: false,
+    }),
+  ],
+  adapter: vercel({
+    analytics: true,
+  }),
 });

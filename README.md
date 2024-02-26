@@ -1,77 +1,100 @@
-# Ovidius - Astro & Tailwind CSS Theme by justgoodui.com
+# Astronomy
 
-Ovidius is a single-author blog theme for Astro.js. Featuring a minimal, slick, responsive and content-focused design. For more Astro.js themes please check [justgoodui.com](https://justgoodui.com/).
+An open source application built using the latest features in Astro v4 with shadcn/ui.
 
-![Ovidius Astro.js Theme](public/ovidius-preview.jpg)
+![blog](public/og.jpg)
 
-## Theme Features:
+> **Warning**
+> This app is a work in progress. I'm building this in public. You can follow the progress on Twitter [@miickasmt](https://twitter.com/miickasmt).
+> See the roadmap below.
 
-- ✅ Featured post support
-- ✅ Subscribe form
-- ✅ Tailwind CSS
-- ✅ SEO-friendly with canonical URLs and OpenGraph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
+## About this project
 
-## Template Integrations
+This project as an experiment to see how a modern app (with features like authentication, subscriptions, API routes, Markdown, Content Collections ...etc) would work in Astro v4 and shadcn/ui.
 
-- @astrojs/tailwind - https://docs.astro.build/en/guides/integrations-guide/tailwind/
-- @astrojs/sitemap - https://docs.astro.build/en/guides/integrations-guide/sitemap/
-- @astrojs/mdx - https://docs.astro.build/en/guides/markdown-content/
-- @astrojs/rss - https://docs.astro.build/en/guides/rss/
+> **Note**
+> I would like to inform you that for the time being, my example app built with Astro.js is still under development and **cannot yet be considered a starter template**.
 
-## 🚀 Project Structure
+## Project Structure
 
-Inside of Ovidius Astro theme, you'll see the following folders and files:
-
-```text
+```
 ├── public/
+│   └── fonts/
 ├── src/
-│   ├── components/
-│   ├── content/
-│   ├── data/
-│   ├── icons/
-│   ├── layouts/
-│   ├── pages/
-│   └── styles/
+│   ├── components/
+│   ├── config/
+│   ├── content/
+│   ├── hooks/
+│   ├── icons/
+│   ├── layouts/
+│   ├── lib/
+│   ├── pages/
+│   ├── styles/
+│   └── types/
 ├── astro.config.mjs
-├── tailwind.config.cjs
 ├── README.md
 ├── package.json
+├── tailwind.config.cjs
 └── tsconfig.json
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Features
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro (`.astro`) components.
+- Config files
+- Views Transitions
+- Routing and Layouts
+- React components & hooks
+- UI Components built using **shadcn/ui**
+- Documentation and blog using **MDX** and **Content Collections**
+- Styled using **Tailwind CSS**
+- Validations using **Zod**
+- Written in **TypeScript**
+- 100/100 Lighthouse performance
+- Minimal styling (make it your own!)
 
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
+_Not implemented yet :_
 
-Any static assets, like images, can be placed in the `public/` directory.
+- RSS Feed support
+- Sitemap support
+- Data Fetching
+- SEO component
+- API Routes and Middlewares
+- Authentication using **Auth.js**
+- ORM using **Prisma**
+- Database on **PlanetScale**
+- Subscriptions using **Stripe**
 
-## Astro.js Commands
+## Roadmap
 
-All commands are run from the root of the project, from a terminal:
+- [x] ~Dark mode~
+- [x] ~Add Markdown & MDX support~
+- [x] ~Sheet mobile nav~
+- [ ] Dropdown mobile nav
+- [ ] Build **auth pages**
+- [ ] Build **dashboard pages**
+- [ ] Add search support for blog
+- [ ] Add OG image for blog and others
+- [ ] Add SEO component & metadata
+- [ ] Subscriptions using Stripe
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## Running Locally
 
-## Want to learn more about Astro.js?
+1. Install dependencies using pnpm:
 
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+```sh
+pnpm install
+```
 
-## Credits
+2. Start the development server:
 
-- Demo content generate with [Chat GPT](https://chat.openai.com/)
-- Images for demo content from [Unsplash](https://unsplash.com/)
+```sh
+pnpm run dev
+```
+
+## Credit
+
+This theme is based off of the example app [Taxonomy](https://tx.shadcn.com/) of shadcn.
 
 ## License
 
-Licensed under the [GPL-3.0](https://github.com/JustGoodUI/ovidius-astro-theme/blob/main/LICENSE) license.
+Licensed under the [MIT license](https://github.com/mickasmt/astro-nomy/blob/main/LICENSE.md).
