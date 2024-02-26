@@ -1,74 +1,88 @@
-<p align="center">
-  <img src="assets/gh-banner.png" alt="Odyssey Theme Banner">
-</p>
+# Dante - Astro & Tailwind CSS Theme by justgoodui.com
 
-<br/>
-<div align="center">
-  <a href="https://twitter.com/littlesticksdev">
-  <img src="assets/twitter-badge.svg" alt="Follow Little Sticks on Twitter"/>
-</a>
-  <a href="https://buy.stripe.com/bIY5na6r75nBaYgcMP">
-    <img src="assets/sponsor-badge.svg" alt="Sponsor This Repo" />
-  </a>
-  <a href="https://littlesticks.dev/discord">
-    <img src="assets/discord-badge.svg" alt="Join our Discord" />
-  </a>
-  
-</div>
-<br/>
+Dante is a single-author blog and portfolio theme for Astro.js. Featuring a minimal, slick, responsive and content-focused design. For more Astro.js themes please check [justgoodui.com](https://justgoodui.com/).
 
-# Simple Blog
+![Dante Astro.js Theme](public/dante-preview.jpg)
 
-This is a blog theme/template for Astro. It is inspired by the excellent [blog template](https://blog.framer.website/) by Framer.
+[![Deploy to Netlify Button](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/JustGoodUI/dante-astro-theme)
 
-## Features
+If you click this☝️ button, it will create a new repo for you that looks exactly like this one, and sets that repo up immediately for deployment on Netlify.
 
-- ✅ SEO friendly
-- ✅ Modern Design
-- ✅ Modern CSS Reset via Andy Bell
-- ✅ Fluid typography scaling via Utopia
-- ✅ Base and Page Layouts
-- ✅ A copy code to clipboard button on all code blocks.
-- ✅ Automatic Sitemap
+## Theme Features:
 
-## Get Started 
+- ✅ Dark and light color mode
+- ✅ Hero section with bio
+- ✅ Portfolio collection
+- ✅ Pagination support
+- ✅ Post tags support
+- ✅ Subscription form
+- ✅ View transitions
+- ✅ Tailwind CSS
+- ✅ Mobile-first responsive layout
+- ✅ SEO-friendly with canonical URLs and OpenGraph data
+- ✅ Sitemap support
+- ✅ RSS Feed support
+- ✅ Markdown & MDX support
 
-Customize the global site settings such as the title and description in the `src/data/settings.ts` file
+## Template Integrations
 
-<p>
-  <a href="https://stackblitz.com/github/littlesticks/simple-blog-astro">
-  <img src="https://developer.stackblitz.com/img/open_in_stackblitz.svg" height="36px" />
-  </a>
-</p>
+- @astrojs/tailwind - https://docs.astro.build/en/guides/integrations-guide/tailwind/
+- @astrojs/sitemap - https://docs.astro.build/en/guides/integrations-guide/sitemap/
+- @astrojs/mdx - https://docs.astro.build/en/guides/markdown-content/
+- @astrojs/rss - https://docs.astro.build/en/guides/rss/
 
-OR
+## 🚀 Project Structure
 
-## Local Development
+Inside of Dante Astro theme, you'll see the following folders and files:
 
-```sh
-npm i && npm start
+```text
+├── public/
+├── src/
+│   ├── components/
+│   ├── content/
+│   ├── data/
+│   ├── icons/
+│   ├── layouts/
+│   ├── pages/
+│   ├── styles/
+│   └── utils/
+├── astro.config.mjs
+├── package.json
+├── README.md
+├── tailwind.config.cjs
+└── tsconfig.json
 ```
 
-## Deploy
+Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/littlesticks/simple-blog-astro)
+There's nothing special about `src/components/`, but that's where we like to put any Astro (`.astro`) components.
 
-Feel free to deploy and host your site on your favorite static hosting service such as Netlify, Firebase Hosting, Vercel, GitHub Pages, etc.
+The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
 
-Astro has [an in-depth guide](https://docs.astro.build/en/guides/deploy/) on how to deploy an Astro project to each service.
+Any static assets, like images, can be placed in the `public/` directory.
 
-## Sponsor
+## Astro.js Commands
 
-If you find this theme useful, please consider donating to support the continued development of it and other themes like it with the link below.
+All commands are run from the root of the project, from a terminal:
 
-[Donate to Little Sticks](https://buy.stripe.com/bIY5na6r75nBaYgcMP)
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `npm install`             | Installs dependencies                            |
+| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm run build`           | Build your production site to `./dist/`          |
+| `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-## Support
+## Want to learn more about Astro.js?
 
-Please feel free to reach out to us on our Discord if you have questions or file an issue on the repo.
+Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
 
-[Join our Discord](https://littlesticks.dev/discord)
+## Credits
+
+- Demo content generate with [Chat GPT](https://chat.openai.com/)
+- Images for demo content from [Unsplash](https://unsplash.com/)
 
 ## License
 
-MIT
+Licensed under the [GPL-3.0](https://github.com/JustGoodUI/dante-astro-theme/blob/main/LICENSE) license.
