@@ -10,7 +10,6 @@ export default defineConfig({
         mdx(),
         sitemap(),
         tailwind({
-            // Disable injecting a basic `base.css` import on every page.
             applyBaseStyles: false
         })
     ]

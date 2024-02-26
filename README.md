@@ -1,14 +1,24 @@
-# Ovidius - Astro & Tailwind CSS Theme by justgoodui.com
+# Dante - Astro & Tailwind CSS Theme by justgoodui.com
 
-Ovidius is a single-author blog theme for Astro.js. Featuring a minimal, slick, responsive and content-focused design. For more Astro.js themes please check [justgoodui.com](https://justgoodui.com/).
+Dante is a single-author blog and portfolio theme for Astro.js. Featuring a minimal, slick, responsive and content-focused design. For more Astro.js themes please check [justgoodui.com](https://justgoodui.com/).
 
-![Ovidius Astro.js Theme](public/ovidius-preview.jpg)
+![Dante Astro.js Theme](public/dante-preview.jpg)
+
+[![Deploy to Netlify Button](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/JustGoodUI/dante-astro-theme)
+
+If you click this☝️ button, it will create a new repo for you that looks exactly like this one, and sets that repo up immediately for deployment on Netlify.
 
 ## Theme Features:
 
-- ✅ Featured post support
-- ✅ Subscribe form
+- ✅ Dark and light color mode
+- ✅ Hero section with bio
+- ✅ Portfolio collection
+- ✅ Pagination support
+- ✅ Post tags support
+- ✅ Subscription form
+- ✅ View transitions
 - ✅ Tailwind CSS
+- ✅ Mobile-first responsive layout
 - ✅ SEO-friendly with canonical URLs and OpenGraph data
 - ✅ Sitemap support
 - ✅ RSS Feed support
@@ -23,7 +33,7 @@ Ovidius is a single-author blog theme for Astro.js. Featuring a minimal, slick, 
 
 ## 🚀 Project Structure
 
-Inside of Ovidius Astro theme, you'll see the following folders and files:
+Inside of Dante Astro theme, you'll see the following folders and files:
 
 ```text
 ├── public/
@@ -34,11 +44,12 @@ Inside of Ovidius Astro theme, you'll see the following folders and files:
 │   ├── icons/
 │   ├── layouts/
 │   ├── pages/
-│   └── styles/
+│   ├── styles/
+│   └── utils/
 ├── astro.config.mjs
-├── tailwind.config.cjs
-├── README.md
 ├── package.json
+├── README.md
+├── tailwind.config.cjs
 └── tsconfig.json
 ```
 
@@ -74,4 +85,4 @@ Check out [our documentation](https://docs.astro.build) or jump into our [Discor
 
 ## License
 
-Licensed under the [GPL-3.0](https://github.com/JustGoodUI/ovidius-astro-theme/blob/main/LICENSE) license.
+Licensed under the [GPL-3.0](https://github.com/JustGoodUI/dante-astro-theme/blob/main/LICENSE) license.

@@ -1,22 +1,23 @@
 ---
 import { type CollectionEntry } from 'astro:content';
+import ArrowRight from '../icons/ArrowRight.astro';
 import FormattedDate from './FormattedDate.astro';
 
-const { post } = Astro.props as { post: CollectionEntry<'blog'> };
-const { title, publishDate, updatedDate, featureImage, excerpt, isFeatured } = post.data;
+type Props = { post: CollectionEntry<'blog'>; class?: string; headingLevel?: 'h2' | 'h3' };
+
+const { post, class: className, headingLevel = 'h2' } = Astro.props;
+const { title, publishDate, updatedDate, excerpt } = post.data;
+const TitleTag = headingLevel;
 ---
 
-<article class="post-card mb-12 sm:mb-16">
-    <header class="post-card-header">
-        <div class="mb-2 text-sm uppercase tracking-wider text-slate-500">
-            {
-                isFeatured && (
-                    <>
-                        <span class="text-primary">Featured</span>
-                        {' / '}
-                    </>
-                )
-            }
+<a class:list={['flex justify-between items-start gap-8 group', className]} href={`/blog/${post.slug}/`}>
+    <div class="grow">
+        <TitleTag
+            class="text-xl leading-tight font-serif font-medium group-hover:underline group-hover:decoration-dashed group-hover:underline-offset-4 group-hover:decoration-1 sm:text-2xl"
+        >
+            {title}
+        </TitleTag>
+        <div class="mt-1 text-sm leading-normal">
             <FormattedDate date={publishDate} />
             {
                 updatedDate && (
@@ -29,44 +30,9 @@ const { title, publishDate, updatedDate, featureImage, excerpt, isFeatured } = p
                 )
             }
         </div>
-        <h2 class="text-3xl font-bold text-slate-900"><a href={`/blog/${post.slug}/`}>{title}</a></h2>
-    </header>
-    {
-        featureImage?.src && (
-            <figure class="post-card-thumbnail mt-6 mb-6 xl:mb-0">
-                <a href={`/blog/${post.slug}/`}>
-                    <img class="w-full rounded-md" src={featureImage.src} loading="lazy" decoding="async" alt={featureImage.alt || ''} />
-                </a>
-            </figure>
-        )
-    }
-    {
-        excerpt && (
-            <div class="post-card-content mt-4">
-                <div class="prose prose-slate max-w-none sm:prose-lg">{excerpt}</div>
-            </div>
-        )
-    }
-</article>
-
-<style>
-    @media (min-width: 1280px) {
-        .post-card-header {
-            grid-area: header;
-        }
-        .post-card-content {
-            grid-area: content;
-        }
-        .post-card-thumbnail {
-            grid-area: thumbnail;
-        }
-        .post-card {
-            @apply grid gap-x-8;
-            grid-template-rows: min-content 1fr;
-            grid-template-columns: 1fr 768px 1fr;
-            grid-template-areas:
-                'thumbnail header'
-                'thumbnail content';
-        }
-    }
-</style>
+        {excerpt && <div class="mt-3 text-sm leading-normal">{excerpt}</div>}
+    </div>
+    <div class="hidden font-serif italic opacity-0 transition group-hover:opacity-100 sm:inline-flex sm:gap-1 sm:items-center sm:shrink-0">
+        Read Post <ArrowRight class="fill-current w-4 h-4" />
+    </div>
+</a>

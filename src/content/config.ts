@@ -18,14 +18,8 @@ const blog = defineCollection({
         excerpt: z.string().optional(),
         publishDate: z.coerce.date(),
         updatedDate: z.coerce.date().optional(),
-        featureImage: z
-            .object({
-                src: z.string(),
-                alt: z.string().optional(),
-                caption: z.string().optional()
-            })
-            .optional(),
         isFeatured: z.boolean().default(false),
+        tags: z.array(z.string()).default([]),
         seo: seoSchema.optional()
     })
 });
@@ -33,15 +27,18 @@ const blog = defineCollection({
 const pages = defineCollection({
     schema: z.object({
         title: z.string(),
-        featureImage: z
-            .object({
-                src: z.string(),
-                alt: z.string().optional(),
-                caption: z.string().optional()
-            })
-            .optional(),
         seo: seoSchema.optional()
     })
 });
 
-export const collections = { blog, pages };
+const projects = defineCollection({
+    schema: z.object({
+        title: z.string(),
+        description: z.string().optional(),
+        publishDate: z.coerce.date(),
+        isFeatured: z.boolean().default(false),
+        seo: seoSchema.optional()
+    })
+});
+
+export const collections = { blog, pages, projects };
